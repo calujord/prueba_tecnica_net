@@ -1,5 +1,8 @@
 ﻿namespace PruebaTecnicaNet.Domain.SettlementBankAggregate;
 
+/// <summary>
+/// Settlement bank entity
+/// </summary>
 public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
 {
     public string Bic { get; private set; }

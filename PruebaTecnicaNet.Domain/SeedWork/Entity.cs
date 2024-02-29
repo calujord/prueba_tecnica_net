@@ -39,11 +39,20 @@ public class Entity
         _domainEvents?.Clear();
     }
 
+    /// <summary>
+    /// Check if the entity is transient
+    /// </summary>
+    /// <returns> True if the entity is transient, false otherwise </returns>
     public bool IsTransient()
     {
         return this.Id == default(int);
     }
 
+    /// <summary>
+    /// Check if two entities are the same
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns> True if the entities are the same, false otherwise </returns>
     public override bool Equals(object obj)
     {
         if (obj == null || !(obj is Entity))
@@ -69,6 +78,10 @@ public class Entity
         }
     }
 
+    /// <summary>
+    /// Get the hash code of the entity
+    /// </summary>
+    /// <returns> The hash code of the entity </returns>
     public override int GetHashCode()
     {
         if (!IsTransient())
@@ -85,6 +98,12 @@ public class Entity
         }
     }
 
+    /// <summary>
+    /// Check if two entities are the same
+    /// </summary>
+    /// <param name="left"></param>
+    /// <param name="right"></param>
+    /// <returns> True if the entities are the same, false otherwise </returns>
     public static bool operator ==(Entity left, Entity right)
     {
         if (Object.Equals(left, null))
@@ -97,6 +116,12 @@ public class Entity
         }
     }
 
+    /// <summary>
+    /// Check if two entities are different
+    /// </summary>
+    /// <param name="left"></param>
+    /// <param name="right"></param>
+    /// <returns> True if the entities are different, false otherwise </returns>
     public static bool operator !=(Entity left, Entity right)
     {
         return !(left == right);
