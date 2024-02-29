@@ -1,4 +1,5 @@
-﻿namespace PruebaTecnicaNet.Domain.SettlementBankAggregate;
+﻿
+namespace PruebaTecnicaNet.Domain.SettlementBankAggregate;
 
 /// <summary>
 /// Settlement bank entity
@@ -8,6 +9,8 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
     public string Bic { get; private set; }
     public string Country { get; private set; }
     public string Name { get; private set; }
+
+    public IUnitOfWork UnitOfWork => throw new NotImplementedException();
 
     // Additional code
 
@@ -43,11 +46,11 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
 
     // Some example methods to validate the properties of the SettlementBank
 
-    public bool IsBicValid(string bic) => bic.Length == 8;
+    public static bool IsBicValid(string bic) => bic.Length == 8;
 
-    public bool IsCountryValid(string country) => country.Length == 2;
+    public static bool IsCountryValid(string country) => country.Length == 2;
 
-    public bool IsNameValid(string name) => name.Length > 0;
+    public static bool IsNameValid(string name) => name.Length > 0;
 
     // Now we check only the properties of the SettlementBank but in the future we could add more validations
     public bool IsValid() => IsBicValid(Bic) && IsCountryValid(Country) && IsNameValid(Name);
@@ -108,4 +111,70 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
         AddDomainEvent(settlementBankUpdatedEvent);
     }
 
+    // Some repository methods
+
+    public SettlementBank Add(SettlementBank settlementBank)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Update(SettlementBank settlementBank)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<SettlementBank> FindByIdAsync(Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<SettlementBank> FindByNameAsync(string name)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<List<SettlementBank>> FindAllAsync()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> ExistsAsync(Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> ExistsByNameAsync(string name)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> ExistsByCodeAsync(string code)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> ExistsByCodeAsync(string code, Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> ExistsByCodeAsync(string code, Guid? id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> ExistsByCodeAsync(string code, Guid id, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> ExistsByCodeAsync(string code, Guid? id, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> ExistsByCodeAsync(string code, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
 }

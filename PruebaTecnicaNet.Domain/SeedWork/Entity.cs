@@ -20,8 +20,8 @@ public class Entity
     }
 
     // Domain Events
-    private List<INotification> _domainEvents;
-    public IReadOnlyCollection<INotification> DomainEvents => _domainEvents?.AsReadOnly();
+    private List<INotification>? _domainEvents;
+    public IReadOnlyCollection<INotification>? DomainEvents => _domainEvents?.AsReadOnly();
 
     public void AddDomainEvent(INotification eventItem)
     {
@@ -53,9 +53,11 @@ public class Entity
     /// </summary>
     /// <param name="obj"></param>
     /// <returns> True if the entities are the same, false otherwise </returns>
+#pragma warning disable CS8765 // La nulabilidad del tipo de parámetro no coincide con el miembro invalidado (posiblemente debido a los atributos de nulabilidad).
     public override bool Equals(object obj)
+#pragma warning restore CS8765 // La nulabilidad del tipo de parámetro no coincide con el miembro invalidado (posiblemente debido a los atributos de nulabilidad).
     {
-        if (obj == null || !(obj is Entity))
+        if (obj is not Entity)
         {
             return false;
         }
@@ -82,6 +84,7 @@ public class Entity
     /// Get the hash code of the entity
     /// </summary>
     /// <returns> The hash code of the entity </returns>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Bug", "S2328:\"GetHashCode\" should not reference mutable fields", Justification = "<pendiente>")]
     public override int GetHashCode()
     {
         if (!IsTransient())
@@ -104,11 +107,12 @@ public class Entity
     /// <param name="left"></param>
     /// <param name="right"></param>
     /// <returns> True if the entities are the same, false otherwise </returns>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S3875:\"operator==\" should not be overloaded on reference types", Justification = "<pendiente>")]
     public static bool operator ==(Entity left, Entity right)
     {
         if (Object.Equals(left, null))
         {
-            return (Object.Equals(right, null)) ? true : false;
+            return (Object.Equals(right, null));
         }
         else
         {

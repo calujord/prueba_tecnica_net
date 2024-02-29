@@ -3,6 +3,6 @@
 /// <summary>
 /// Interface for aggregate root
 /// </summary>
-internal interface IAggregateRoot
+public interface IAggregateRoot
 {
 }
