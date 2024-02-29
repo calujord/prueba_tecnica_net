@@ -40,15 +40,16 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
         {
             throw new SettlementBankException.InvalidNameException(name);
         }
+
+        Bic = bic;
+        Country = country;
+        Name = name;
+
         // If the SettlementBank is not valid, throw an exception
         if (!IsValid())
         {
             throw new SettlementBankException.InvalidSettlementBankException();
         }
-
-        Bic = bic;
-        Country = country;
-        Name = name;
     }
 
     // Some example methods to validate the properties of the SettlementBank

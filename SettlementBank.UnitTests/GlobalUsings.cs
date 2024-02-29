@@ -1,0 +1,11 @@
+﻿global using MediatR;
+//global using Microsoft.AspNetCore.Mvc;
+global using PruebaTecnicaNet.Domain.SettlementBankAggregate;
+global using PruebaTecnicaNet.Domain.Events;
+global using PruebaTecnicaNet.Domain.Exceptions;
+global using PruebaTecnicaNet.Domain.SeedWork;
+global using PruebaTecnicaNet.Infraestructure.Idempotency;
+global using Microsoft.Extensions.Logging;
+global using NSubstitute;
+//global using PruebaTecnicaNet.UnitTests;
+global using Xunit;
