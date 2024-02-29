@@ -12,6 +12,8 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
 
     public IUnitOfWork UnitOfWork => throw new NotImplementedException();
 
+    public string Code { get; set; }
+
     // Additional code
 
     public SettlementBank(string bic, string country, string name)
@@ -123,7 +125,7 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
         throw new NotImplementedException();
     }
 
-    public Task<SettlementBank> FindByIdAsync(Guid id)
+    public Task<SettlementBank> FindByIdAsync(int id)
     {
         throw new NotImplementedException();
     }
@@ -138,7 +140,7 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
         throw new NotImplementedException();
     }
 
-    public Task<bool> ExistsAsync(Guid id)
+    public Task<bool> ExistsAsync(int id)
     {
         throw new NotImplementedException();
     }
@@ -153,22 +155,22 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
         throw new NotImplementedException();
     }
 
-    public Task<bool> ExistsByCodeAsync(string code, Guid id)
+    public Task<bool> ExistsByCodeAsync(string code, int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<bool> ExistsByCodeAsync(string code, Guid? id)
+    public Task<bool> ExistsByCodeAsync(string code, int? id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<bool> ExistsByCodeAsync(string code, Guid id, CancellationToken cancellationToken)
+    public Task<bool> ExistsByCodeAsync(string code, int id, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }
 
-    public Task<bool> ExistsByCodeAsync(string code, Guid? id, CancellationToken cancellationToken)
+    public Task<bool> ExistsByCodeAsync(string code, int? id, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }

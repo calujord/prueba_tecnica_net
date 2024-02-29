@@ -20,8 +20,8 @@ public class Entity
     }
 
     // Domain Events
-    private List<INotification>? _domainEvents;
-    public IReadOnlyCollection<INotification>? DomainEvents => _domainEvents?.AsReadOnly();
+    private List<INotification> _domainEvents;
+    public IReadOnlyCollection<INotification> DomainEvents => _domainEvents.AsReadOnly();
 
     public void AddDomainEvent(INotification eventItem)
     {
