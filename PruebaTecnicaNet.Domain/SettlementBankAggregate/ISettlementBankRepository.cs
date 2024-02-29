@@ -1,4 +1,8 @@
-﻿namespace PruebaTecnicaNet.Domain.SettlementBankAggregate;
+﻿using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace PruebaTecnicaNet.Domain.SettlementBankAggregate;
 
 public interface ISettlementBankRepository : IRepository<SettlementBank>
 {

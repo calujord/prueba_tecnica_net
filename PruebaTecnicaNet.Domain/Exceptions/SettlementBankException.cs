@@ -1,4 +1,6 @@
-﻿namespace PruebaTecnicaNet.Domain.Exceptions;
+﻿using System;
+
+namespace PruebaTecnicaNet.Domain.Exceptions;
 
 /// <summary>
 /// Exception for Settlement Bank

@@ -1,4 +1,8 @@
-﻿namespace PruebaTecnicaNet.Infraestructure;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace PruebaTecnicaNet.Infraestructure;
 
 public class SettlementBankContext : DbContext, IUnitOfWork
 {

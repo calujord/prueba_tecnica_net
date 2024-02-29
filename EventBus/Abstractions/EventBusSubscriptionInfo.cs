@@ -1,5 +1,7 @@
 ﻿using System.Text.Json.Serialization.Metadata;
 using System.Text.Json;
+using System.Collections.Generic;
+using System;
 
 namespace EventBus.Abstractions;
 

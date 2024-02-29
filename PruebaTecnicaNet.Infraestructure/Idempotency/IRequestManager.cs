@@ -1,4 +1,7 @@
-﻿namespace PruebaTecnicaNet.Infraestructure.Idempotency;
+﻿using System;
+using System.Threading.Tasks;
+
+namespace PruebaTecnicaNet.Infraestructure.Idempotency;
 
 public interface IRequestManager
 {

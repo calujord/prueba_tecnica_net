@@ -1,4 +1,8 @@
-﻿namespace PruebaTecnicaNet.Infraestructure.Repositories
+﻿using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace PruebaTecnicaNet.Infraestructure.Repositories
 {
     internal class SettlementBankRepository : ISettlementBankRepository
     {

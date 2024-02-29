@@ -1,4 +1,7 @@
-﻿namespace PruebaTecnicaNet.Domain.SeedWork;
+﻿using System;
+using System.Collections.Generic;
+
+namespace PruebaTecnicaNet.Domain.SeedWork;
 
 /// <summary>
 /// Base class for entities

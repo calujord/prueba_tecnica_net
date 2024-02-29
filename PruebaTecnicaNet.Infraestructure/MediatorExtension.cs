@@ -1,4 +1,7 @@
-﻿namespace PruebaTecnicaNet.Infraestructure;
+﻿using System.Linq;
+using System.Threading.Tasks;
+
+namespace PruebaTecnicaNet.Infraestructure;
 
 static class MediatorExtension
 {
