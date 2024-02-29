@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTecnicaNet.Infraestru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus", "EventBus\EventBus.csproj", "{4BF08E73-BFAE-4CE5-A242-538AD5FAE951}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationEventLogEF", "IntegrationEventLogEF\IntegrationEventLogEF.csproj", "{1FFCD79A-08E3-4E02-915E-483FB8CDF577}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{4BF08E73-BFAE-4CE5-A242-538AD5FAE951}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BF08E73-BFAE-4CE5-A242-538AD5FAE951}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BF08E73-BFAE-4CE5-A242-538AD5FAE951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FFCD79A-08E3-4E02-915E-483FB8CDF577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FFCD79A-08E3-4E02-915E-483FB8CDF577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FFCD79A-08E3-4E02-915E-483FB8CDF577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FFCD79A-08E3-4E02-915E-483FB8CDF577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
