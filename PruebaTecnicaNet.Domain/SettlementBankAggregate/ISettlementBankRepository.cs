@@ -1,6 +1,5 @@
-﻿namespace PruebaTecnicaNet.Domain.SettlementBankAggregate
+﻿namespace PruebaTecnicaNet.Domain.SettlementBankAggregate;
+
+internal interface ISettlementBankRepository
 {
-    internal interface ISettlementBankRepository
-    {
-    }
 }
