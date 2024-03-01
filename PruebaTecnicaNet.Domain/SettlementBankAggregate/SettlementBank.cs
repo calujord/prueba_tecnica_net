@@ -79,7 +79,7 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
         }
 
         // Add the domain event
-        var settlementBankBicUpdatedEvent = new SettlementBankBicUpdatedEvent(this, bic);
+        var settlementBankBicUpdatedEvent = new SettlementBankBicUpdatedDomainEvent(this, bic);
         AddDomainEvent(settlementBankBicUpdatedEvent);
     }
 
@@ -97,7 +97,7 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
         }
 
         // Add the domain event
-        var settlementBankUpdatedEvent = new SettlementBankCountryUpdatedEvent(this, country);
+        var settlementBankUpdatedEvent = new SettlementBankCountryUpdatedDomainEvent(this, country);
         AddDomainEvent(settlementBankUpdatedEvent);
     }
 
@@ -115,7 +115,7 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
         }
 
         // Add the domain event
-        var settlementBankUpdatedEvent = new SettlementBankNameUpdatedEvent(this, name);
+        var settlementBankUpdatedEvent = new SettlementBankNameUpdatedDomainEvent(this, name);
         AddDomainEvent(settlementBankUpdatedEvent);
     }
 

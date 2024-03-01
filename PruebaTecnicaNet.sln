@@ -3,18 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTecnicaNet.Domain", "PruebaTecnicaNet.Domain\PruebaTecnicaNet.Domain.csproj", "{2AE4B1BA-B07C-4F21-BCD4-79B2522023F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaTecnicaNet.Domain", "PruebaTecnicaNet.Domain\PruebaTecnicaNet.Domain.csproj", "{2AE4B1BA-B07C-4F21-BCD4-79B2522023F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTecnicaNet.Infraestructure", "PruebaTecnicaNet.Infraestructure\PruebaTecnicaNet.Infraestructure.csproj", "{90448A92-6DB6-47E8-825D-DE1C766A2B63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaTecnicaNet.Infraestructure", "PruebaTecnicaNet.Infraestructure\PruebaTecnicaNet.Infraestructure.csproj", "{90448A92-6DB6-47E8-825D-DE1C766A2B63}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2AE4B1BA-B07C-4F21-BCD4-79B2522023F4} = {2AE4B1BA-B07C-4F21-BCD4-79B2522023F4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus", "EventBus\EventBus.csproj", "{4BF08E73-BFAE-4CE5-A242-538AD5FAE951}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus", "EventBus\EventBus.csproj", "{4BF08E73-BFAE-4CE5-A242-538AD5FAE951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationEventLogEF", "IntegrationEventLogEF\IntegrationEventLogEF.csproj", "{1FFCD79A-08E3-4E02-915E-483FB8CDF577}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationEventLogEF", "IntegrationEventLogEF\IntegrationEventLogEF.csproj", "{1FFCD79A-08E3-4E02-915E-483FB8CDF577}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettlementBank.UnitTests", "SettlementBank.UnitTests\SettlementBank.UnitTests.csproj", "{7E4107F8-92D2-4C41-BC3D-BCDA11AA9D1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettlementBank.UnitTests", "SettlementBank.UnitTests\SettlementBank.UnitTests.csproj", "{7E4107F8-92D2-4C41-BC3D-BCDA11AA9D1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{87262304-F594-4998-BABF-833488A1350D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -7,7 +7,7 @@ namespace PruebaTecnicaNet.Domain.Events;
 /// </summary>
 /// <param name="settlementBank"></param>
 /// <param name="bic"></param>
-public class SettlementBankBicUpdatedEvent(SettlementBank settlementBank, string bic) : INotification
+public class SettlementBankBicUpdatedDomainEvent(SettlementBank settlementBank, string bic) : INotification
 {
     public SettlementBank SettlementBank { get; } = settlementBank;
     public string Bic { get; } = bic;
