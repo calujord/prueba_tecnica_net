@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using IntegrationEventLogEF;
+using PruebaTecnicaNet.IntegrationEventLogEF;
 
 namespace PruebaTecnicaNet.Infraestructure;
 

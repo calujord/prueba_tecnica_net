@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace IntegrationEventLogEF.Utilities;
+namespace PruebaTecnicaNet.IntegrationEventLogEF.Utilities;
 
 public class ResilientTransaction
 {

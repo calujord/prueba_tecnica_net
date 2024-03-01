@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EventBus.Events;
+namespace PruebaTecnicaNet.EventBus.Events;
 
 public record IntegrationEvent
 {

@@ -1,4 +1,4 @@
-﻿namespace SettlementBank.UnitTests.Domain;
+﻿namespace PruebaTecnicaNet.SettlementBank.UnitTests.Domain;
 
 using PruebaTecnicaNet.Domain.SettlementBankAggregate;
 

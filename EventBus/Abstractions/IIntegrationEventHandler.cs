@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace EventBus.Abstractions;
+namespace PruebaTecnicaNet.EventBus.Abstractions;
 
 public interface IIntegrationEventHandler<in TIntegrationEvent> : IIntegrationEventHandler
     where TIntegrationEvent : IntegrationEvent

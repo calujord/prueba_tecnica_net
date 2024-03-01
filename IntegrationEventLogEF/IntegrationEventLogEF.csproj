@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<RootNamespace>IntegrationEventLogEF</RootNamespace>
+		<RootNamespace>PruebaTecnicaNet.IntegrationEventLogEF</RootNamespace>
 		<IsPublishable>false</IsPublishable>
 	</PropertyGroup>
 

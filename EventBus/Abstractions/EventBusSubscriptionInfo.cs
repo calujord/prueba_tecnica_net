@@ -3,7 +3,7 @@ using System.Text.Json;
 using System.Collections.Generic;
 using System;
 
-namespace EventBus.Abstractions;
+namespace PruebaTecnicaNet.EventBus.Abstractions;
 
 public class EventBusSubscriptionInfo
 {

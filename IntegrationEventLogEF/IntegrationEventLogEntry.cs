@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace IntegrationEventLogEF;
+namespace PruebaTecnicaNet.IntegrationEventLogEF;
 
 public class IntegrationEventLogEntry
 {

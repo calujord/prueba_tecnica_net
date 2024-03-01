@@ -1,4 +1,4 @@
-﻿namespace IntegrationEventLogEF;
+﻿namespace PruebaTecnicaNet.IntegrationEventLogEF;
 
 public enum EventStateEnum
 {

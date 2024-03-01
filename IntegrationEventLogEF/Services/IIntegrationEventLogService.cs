@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace IntegrationEventLogEF.Services;
+namespace PruebaTecnicaNet.IntegrationEventLogEF.Services;
 
 public interface IIntegrationEventLogService
 {
