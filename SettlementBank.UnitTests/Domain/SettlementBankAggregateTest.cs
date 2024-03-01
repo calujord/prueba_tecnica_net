@@ -2,6 +2,7 @@
 
 namespace PruebaTecnicaNet.SettlementBank.UnitTests.Domain;
 
+using NSubstitute.ExceptionExtensions;
 using PruebaTecnicaNet.Domain.SettlementBankAggregate;
 
 public class SettlementBankAggregateTest

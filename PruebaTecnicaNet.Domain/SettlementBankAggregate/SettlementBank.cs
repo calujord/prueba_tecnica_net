@@ -1,21 +1,16 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PruebaTecnicaNet.Domain.SettlementBankAggregate;
 
 /// <summary>
 /// Settlement bank entity
 /// </summary>
-public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
+public class SettlementBank : Entity, IAggregateRoot
 {
+    [Required]
     public string Bic { get; private set; }
     public string Country { get; private set; }
     public string Name { get; private set; }
-
-    public IUnitOfWork UnitOfWork => throw new NotImplementedException();
 
     public string Code { get; set; }
 
@@ -117,22 +112,5 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
         // Add the domain event
         var settlementBankUpdatedEvent = new SettlementBankNameUpdatedDomainEvent(this, name);
         AddDomainEvent(settlementBankUpdatedEvent);
-    }
-
-    // Some repository methods
-
-    public SettlementBank Add(SettlementBank settlementBank)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Update(SettlementBank settlementBank)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<SettlementBank> GetAsync(int id)
-    {
-        throw new NotImplementedException();
     }
 }

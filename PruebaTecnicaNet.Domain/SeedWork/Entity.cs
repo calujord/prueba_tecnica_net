@@ -12,14 +12,8 @@ public class Entity
     int _Id;
     public virtual int Id
     {
-        get
-        {
-            return _Id;
-        }
-        protected set
-        {
-            _Id = value;
-        }
+        get => _Id;
+        protected set => _Id = value;
     }
 
     // Domain Events
@@ -28,13 +22,8 @@ public class Entity
 
     public void AddDomainEvent(INotification eventItem)
     {
-        _domainEvents = _domainEvents ?? new List<INotification>();
+        _domainEvents ??= [];
         _domainEvents.Add(eventItem);
-    }
-
-    public void RemoveDomainEvent(INotification eventItem)
-    {
-        _domainEvents?.Remove(eventItem);
     }
 
     public void ClearDomainEvents()
@@ -42,13 +31,34 @@ public class Entity
         _domainEvents?.Clear();
     }
 
+    public void RemoveDomainEvent(INotification eventItem)
+    {
+        _domainEvents?.Remove(eventItem);
+    }
+
     /// <summary>
     /// Check if the entity is transient
     /// </summary>
     /// <returns> True if the entity is transient, false otherwise </returns>
-    public bool IsTransient()
+    public bool IsTransient() => this.Id == default(int);
+
+    /// <summary>
+    /// Get the hash code of the entity
+    /// </summary>
+    /// <returns> The hash code of the entity </returns>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Bug", "S2328:\"GetHashCode\" should not reference mutable fields", Justification = "<pendiente>")]
+    public override int GetHashCode()
     {
-        return this.Id == default(int);
+        if (!IsTransient())
+        {
+            if (!_requestedHashCode.HasValue)
+            {
+                _requestedHashCode = this.Id.GetHashCode() ^ 31; // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
+            }
+            return _requestedHashCode.Value;
+        }
+
+        return base.GetHashCode();
     }
 
     /// <summary>
@@ -80,27 +90,6 @@ public class Entity
         else
         {
             return item.Id == this.Id;
-        }
-    }
-
-    /// <summary>
-    /// Get the hash code of the entity
-    /// </summary>
-    /// <returns> The hash code of the entity </returns>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Bug", "S2328:\"GetHashCode\" should not reference mutable fields", Justification = "<pendiente>")]
-    public override int GetHashCode()
-    {
-        if (!IsTransient())
-        {
-            if (!_requestedHashCode.HasValue)
-            {
-                _requestedHashCode = this.Id.GetHashCode() ^ 31; // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
-            }
-            return _requestedHashCode.Value;
-        }
-        else
-        {
-            return base.GetHashCode();
         }
     }
 
