@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace SettlementBank.UnitTests.Domain;
 
@@ -140,11 +135,8 @@ public class SettlementBankAggregateTest
         var name = "Sparebank 1 SMN";
         var country = "NO";
 
-        // Act
-        Action act = () => new SettlementBank(bic, country, name);
-
-        // Assert
-        Assert.Throws<SettlementBankException.InvalidBicException>(act);
+        // Act - Assert
+        Assert.Throws<SettlementBankException.InvalidBicException>(() => new SettlementBank(bic, country, name));
     }
 
     [Fact]
@@ -155,11 +147,8 @@ public class SettlementBankAggregateTest
         var name = "Sparebank 1 SMN";
         var country = "NOR";
 
-        // Act
-        Action act = () => new SettlementBank(bic, country, name);
-
-        // Assert
-        Assert.Throws<SettlementBankException.InvalidCountryException>(act);
+        // Act - Assert
+        Assert.Throws<SettlementBankException.InvalidCountryException>(() => new SettlementBank(bic, country, name));
     }
 
     [Fact]
@@ -170,11 +159,8 @@ public class SettlementBankAggregateTest
         var name = "";
         var country = "NO";
 
-        // Act
-        Action act = () => new SettlementBank(bic, country, name);
-
-        // Assert
-        Assert.Throws<SettlementBankException.InvalidSettlementBankException>(act);
+        // Act - Assert
+        Assert.Throws<SettlementBankException.InvalidSettlementBankException>(() => new SettlementBank(bic, country, name));
     }
 
     [Fact]

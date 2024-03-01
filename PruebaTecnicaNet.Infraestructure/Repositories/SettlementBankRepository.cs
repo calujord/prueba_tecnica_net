@@ -6,7 +6,7 @@ namespace PruebaTecnicaNet.Infraestructure.Repositories
 {
     internal class SettlementBankRepository : ISettlementBankRepository
     {
-        private readonly SettlementBankContext _context;
+        private readonly SettlementBankContext _context = default!;
 
         public IUnitOfWork UnitOfWork => _context;
 
