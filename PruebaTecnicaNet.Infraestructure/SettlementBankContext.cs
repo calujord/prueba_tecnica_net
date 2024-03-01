@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using IntegrationEventLogEF;
 
 namespace PruebaTecnicaNet.Infraestructure;
 
@@ -30,7 +31,7 @@ public class SettlementBankContext : DbContext, IUnitOfWork
     {
         modelBuilder.HasDefaultSchema("bank");
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(SettlementBankContext).Assembly);
-        // TODO: logs here
+        modelBuilder.UseIntegrationEventLogs();
     }
 
     public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)

@@ -6,6 +6,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\IntegrationEventLogEF\IntegrationEventLogEF.csproj" />
 		<ProjectReference Include="..\PruebaTecnicaNet.Domain\PruebaTecnicaNet.Domain.csproj" />
 	</ItemGroup>
 
