@@ -131,57 +131,7 @@ public class SettlementBank : Entity, IAggregateRoot, ISettlementBankRepository
         throw new NotImplementedException();
     }
 
-    public Task<SettlementBank> FindByIdAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<SettlementBank> FindByNameAsync(string name)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<List<SettlementBank>> FindAllAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> ExistsAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> ExistsByNameAsync(string name)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> ExistsByCodeAsync(string code)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> ExistsByCodeAsync(string code, int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> ExistsByCodeAsync(string code, int? id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> ExistsByCodeAsync(string code, int id, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> ExistsByCodeAsync(string code, int? id, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> ExistsByCodeAsync(string code, CancellationToken cancellationToken)
+    public Task<SettlementBank> GetAsync(int id)
     {
         throw new NotImplementedException();
     }
