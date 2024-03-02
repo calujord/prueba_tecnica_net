@@ -1,19 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System;
 using System.Threading.Tasks;
 
-namespace PruebaTecnicaNet.Infraestructure.Repositories
+namespace PruebaTecnicaNet.Infraestructure.Repositories;
+
+public class SettlementBankRepository(SettlementBankContext context) : ISettlementBankRepository
 {
-    internal class SettlementBankRepository : ISettlementBankRepository
-    {
-        private readonly SettlementBankContext _context = default!;
+    private readonly SettlementBankContext _context = context ?? throw new ArgumentNullException(nameof(context));
 
-        public IUnitOfWork UnitOfWork => _context;
+    public IUnitOfWork UnitOfWork => _context;
 
-        public SettlementBank Add(SettlementBank settlementBank) => _context.SettlementBanks.Add(settlementBank).Entity;
+    public SettlementBank Add(SettlementBank settlementBank) => _context.SettlementBanks.Add(settlementBank).Entity;
 
-        public async Task<SettlementBank> GetAsync(int id) => await _context.SettlementBanks.FindAsync(id);
+    public async Task<SettlementBank> GetAsync(string Bic) => await _context.SettlementBanks.FindAsync(Bic);
 
-        public void Update(SettlementBank settlementBank) => _context.SettlementBanks.Update(settlementBank);
-    }
+    public void Update(SettlementBank settlementBank) => _context.SettlementBanks.Update(settlementBank);
 }

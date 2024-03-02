@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace PruebaTecnicaNet.Infraestructure.Idempotency
 {
-    internal class RequestManager : IRequestManager
+    public class RequestManager : IRequestManager
     {
         private readonly SettlementBankContext _context;
 

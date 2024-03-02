@@ -29,7 +29,7 @@ public class SettlementBankContext : DbContext, IUnitOfWork
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("bank");
+        modelBuilder.HasDefaultSchema("SettlementBankDB");
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(SettlementBankContext).Assembly);
         modelBuilder.UseIntegrationEventLogs();
     }
