@@ -1,0 +1,12 @@
+﻿global using System.Data.Common;
+global using Npgsql;
+global using System.Runtime.Serialization;
+global using Dapper;
+global using FluentValidation;
+global using MediatR;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Options;
+global using Polly;
+global using Polly.Retry;
+global using Swashbuckle.AspNetCore.SwaggerGen;

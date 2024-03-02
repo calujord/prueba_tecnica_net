@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>PruebaTecnicaNet.API</RootNamespace>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NSwagGenerateExceptionClasses>true</NSwagGenerateExceptionClasses>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>0b4c897e-14e8-4ae6-b533-e8de8781c58e</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="..\Shared\ActivityExtensions.cs" Link="Extensions\ActivityExtensions.cs" />
+		<Compile Include="..\Shared\MigrateDbContextExtensions.cs" Link="Extensions\MigrateDbContextExtensions.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<OpenApiReference Include="OpenAPIs\openapi.json" CodeGenerator="NSwagCSharp" ClassName="EsettClient">
+			<SourceUri>https://api.opendata.esett.com/openapi?format=json</SourceUri>
+		</OpenApiReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0-preview.3.24105.21" />
+		<PackageReference Include="Dapper" Version="2.1.28" />
+		<PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="9.0.0-preview.1.24081.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="NSwag.ApiDescription.Client" Version="14.0.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="NSwag.AspNetCore" Version="14.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
+		<ProjectReference Include="..\IntegrationEventLogEF\IntegrationEventLogEF.csproj" />
+		<ProjectReference Include="..\PruebaTecnicaNet.Domain\PruebaTecnicaNet.Domain.csproj" />
+		<ProjectReference Include="..\PruebaTecnicaNet.Infraestructure\PruebaTecnicaNet.Infraestructure.csproj" />
+		<ProjectReference Include="..\PruebaTecnicaNet.ServiceDefaults\PruebaTecnicaNet.ServiceDefaults.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Apis\EsettClient.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>EsettClient</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Apis\EsettClient">
+			<Generator>NSwagCodeGenerator</Generator>
+			<LastGenOutput>EsettClient.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Application\Models\" />
+	</ItemGroup>
+
+</Project>
