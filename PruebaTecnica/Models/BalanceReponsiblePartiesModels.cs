@@ -10,5 +10,8 @@ namespace PruebaTecnica.Models
 
         [JsonProperty("BalanceResponsible")]
         public BalanceReponsiblePartiesDTO BalanceResponsible { get; set; }
+
+        [JsonProperty("Mensaje")]
+        public string Mensaje { get; set; }
     }
 }

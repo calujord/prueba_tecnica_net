@@ -9,10 +9,12 @@ namespace PruebaTecnica.Servicio
     public class BalanceResponsibleService : IBalanceResponsiblePartyService
     {
         private readonly ApplicationContext _context;
+        private readonly IWebApiExterna _webApiExterna;
 
-        public BalanceResponsibleService(ApplicationContext context) 
+        public BalanceResponsibleService(ApplicationContext context, IWebApiExterna webApiExterna)
         {
             _context = context;
+            _webApiExterna = webApiExterna;
         }
 
         public ServiceResult<BalanceReponsiblePartiesModels> GetData(int id)
@@ -53,7 +55,33 @@ namespace PruebaTecnica.Servicio
 
         public ServiceResult<BalanceReponsiblePartiesModels> Save()
         {
-            throw new NotImplementedException();
+            var result = new ServiceResult<BalanceReponsiblePartiesModels>();
+            var datosApi = _webApiExterna.TraerDatosApi();
+            if (!datosApi.responsiblePartyDTOs.Any()) 
+            {
+                result.Data.CodigoResultado = 2;
+                result.Data.Mensaje = "No hay elementos en la búsqueda";
+                return result;
+            };
+
+            var dataEntidad=datosApi.responsiblePartyDTOs.Select(x => new BalanceResponsibleParty
+            {
+                BrpCode=x.BrpCode,
+                BrpName=x.BrpName,
+                BusinessId=x.BusinessId,
+                CodingScheme = x.CodingScheme,
+                Country=x.Country,
+                ValidityEnd = x.ValidityEnd,
+                ValidityStart= x.ValidityStart
+            });
+
+            _context.AddRange(dataEntidad);
+
+            result.Data.CodigoResultado = 0;
+            result.Data.Mensaje = "Datos Guardados";
+
+            return result;
+
         }
     }
 }

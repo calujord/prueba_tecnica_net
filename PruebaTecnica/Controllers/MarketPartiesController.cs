@@ -17,27 +17,31 @@ namespace PruebaTecnica.Controllers
         }
 
 
-        [HttpGet(Name = "ObtenerDatosApi")]
+        [HttpGet("ObtenerDatosApi")]
         public IActionResult ObtenerDatosApi()
         {
             _logger.LogInformation("Entramos en el metodo");
             var result = _balance.Save();
             if (result.Data.CodigoResultado == 0)
             {
-                return Ok("Datos guardados correctamente");
+                return Ok(result.Data.Mensaje);
+            }
+            else if (result.Data.CodigoResultado==2) 
+            {
+                return NoContent();                
             }
             else
             {
-                return NotFound();
+                return BadRequest();
             }
         }
 
-        [HttpGet(Name = "Data/{id}")]
+        [HttpGet("Data/{id}")]
         public IActionResult GetDataById(int id)
         {
             _logger.LogInformation("Entramos en el método");
 
-            var result = _balance.ObtenerBalance(id);
+            var result = _balance.GetData(id);
 
             if (result.Data.CodigoResultado == 0)
             {

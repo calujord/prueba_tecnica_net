@@ -1,11 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using PruebaTecnica.ContextoBBDD;
+using PruebaTecnica.Servicio;
+using PruebaTecnica.Servicio.Interfaz;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionSql")));
+
+builder.Services.AddScoped<IBalanceResponsiblePartyService, BalanceResponsibleService>();
+builder.Services.AddScoped<IWebApiExterna, WebApiExterna>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
