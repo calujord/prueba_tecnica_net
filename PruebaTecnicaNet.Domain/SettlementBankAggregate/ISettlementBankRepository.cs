@@ -8,5 +8,5 @@ public interface ISettlementBankRepository : IRepository<SettlementBank>
 {
     SettlementBank Add(SettlementBank settlementBank);
     void Update(SettlementBank settlementBank);
-    Task<SettlementBank> GetAsync(int id);
+    Task<SettlementBank> GetAsync(string Bic);
 }

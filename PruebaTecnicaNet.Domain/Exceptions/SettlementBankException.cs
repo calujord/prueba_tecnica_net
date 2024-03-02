@@ -7,7 +7,15 @@ namespace PruebaTecnicaNet.Domain.Exceptions;
 /// </summary>
 public class SettlementBankException : Exception
 {
+    public SettlementBankException()
+    {
+    }
+
     public SettlementBankException(string message) : base(message)
+    {
+    }
+
+    public SettlementBankException(string message, Exception innerException) : base(message, innerException)
     {
     }
 

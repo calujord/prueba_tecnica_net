@@ -49,7 +49,7 @@ public class SettlementBank : Entity, IAggregateRoot
 
     // Some example methods to validate the properties of the SettlementBank
 
-    public static bool IsBicValid(string bic) => bic.Length == 8;
+    public static bool IsBicValid(string bic) => bic.Length <= 100;
 
     public static bool IsCountryValid(string country) => country.Length == 2;
 
@@ -74,8 +74,8 @@ public class SettlementBank : Entity, IAggregateRoot
         }
 
         // Add the domain event
-        var settlementBankBicUpdatedEvent = new SettlementBankBicUpdatedDomainEvent(this, bic);
-        AddDomainEvent(settlementBankBicUpdatedEvent);
+        var settlementBankBicUpdatedDomainEvent = new SettlementBankBicUpdatedDomainEvent(this, bic);
+        this.AddDomainEvent(settlementBankBicUpdatedDomainEvent);
     }
 
     public void UpdateCountry(string country)
@@ -92,8 +92,8 @@ public class SettlementBank : Entity, IAggregateRoot
         }
 
         // Add the domain event
-        var settlementBankUpdatedEvent = new SettlementBankCountryUpdatedDomainEvent(this, country);
-        AddDomainEvent(settlementBankUpdatedEvent);
+        var settlementBankUpdatedDomainEvent = new SettlementBankCountryUpdatedDomainEvent(this, country);
+        this.AddDomainEvent(settlementBankUpdatedDomainEvent);
     }
 
     public void UpdateName(string name)
@@ -110,7 +110,7 @@ public class SettlementBank : Entity, IAggregateRoot
         }
 
         // Add the domain event
-        var settlementBankUpdatedEvent = new SettlementBankNameUpdatedDomainEvent(this, name);
-        AddDomainEvent(settlementBankUpdatedEvent);
+        var settlementBankUpdatedDomainEvent = new SettlementBankNameUpdatedDomainEvent(this, name);
+        this.AddDomainEvent(settlementBankUpdatedDomainEvent);
     }
 }
