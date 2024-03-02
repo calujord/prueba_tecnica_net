@@ -60,6 +60,15 @@ namespace PruebaTecnica.Servicio
         {
             var result = new ServiceResult<BalanceReponsiblePartiesModels>();
             var datosApi = _webApiExterna.TraerDatosApi(code, country, name);
+            if (datosApi.CodigoResultado == 1) 
+            {
+                result.Data = new BalanceReponsiblePartiesModels()
+                {
+                    CodigoResultado = 1,
+                    Mensaje = "Se ha producido un error"
+                };
+                return result;
+            }
             if (!datosApi.responsiblePartyDTOs.Any()) 
             {
                 result.Data = new BalanceReponsiblePartiesModels()

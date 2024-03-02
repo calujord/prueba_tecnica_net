@@ -27,9 +27,9 @@ namespace PruebaTecnica.Controllers
             {
                 return Ok(result.Data.Mensaje);
             }
-            else if (result.Data.CodigoResultado==2) 
+            else if (result.Data.CodigoResultado == 2)
             {
-                return NoContent();                
+                return NoContent();
             }
             else
             {
