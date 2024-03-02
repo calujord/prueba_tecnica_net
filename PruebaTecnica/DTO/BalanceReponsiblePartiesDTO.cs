@@ -9,7 +9,7 @@ namespace PruebaTecnica.DTO
         [JsonProperty("BrpName")]
         public string BrpName { get; set; }
         [JsonProperty("BusinessId")]
-        public int BusinessId { get; set; }
+        public string BusinessId { get; set; }
         [JsonProperty("CodingScheme")]
         public string CodingScheme { get; set; }
         [JsonProperty("Country")]
