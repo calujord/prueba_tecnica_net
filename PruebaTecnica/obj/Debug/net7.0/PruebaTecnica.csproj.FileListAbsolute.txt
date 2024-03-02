@@ -70,3 +70,8 @@ D:\repositorios\multimedia\PruebaTecnica\PruebaTecnica\obj\Debug\net7.0\refint\P
 D:\repositorios\multimedia\PruebaTecnica\PruebaTecnica\obj\Debug\net7.0\PruebaTecnica.pdb
 D:\repositorios\multimedia\PruebaTecnica\PruebaTecnica\obj\Debug\net7.0\PruebaTecnica.genruntimeconfig.cache
 D:\repositorios\multimedia\PruebaTecnica\PruebaTecnica\obj\Debug\net7.0\ref\PruebaTecnica.dll
+D:\repositorios\multimedia\PruebaTecnica\PruebaTecnica\bin\Debug\net7.0\Humanizer.dll
+D:\repositorios\multimedia\PruebaTecnica\PruebaTecnica\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\repositorios\multimedia\PruebaTecnica\PruebaTecnica\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\repositorios\multimedia\PruebaTecnica\PruebaTecnica\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\repositorios\multimedia\PruebaTecnica\PruebaTecnica\bin\Debug\net7.0\System.CodeDom.dll

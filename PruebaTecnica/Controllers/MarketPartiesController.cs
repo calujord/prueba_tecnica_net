@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Servicio.Interfaz;
+using System.Diagnostics.Metrics;
 
 namespace PruebaTecnica.Controllers
 {
@@ -18,10 +19,10 @@ namespace PruebaTecnica.Controllers
 
 
         [HttpGet("ObtenerDatosApi")]
-        public IActionResult ObtenerDatosApi()
+        public IActionResult ObtenerDatosApi([FromQuery]string code=null, [FromQuery] string country=null, [FromQuery] string name=null)
         {
             _logger.LogInformation("Entramos en el metodo");
-            var result = _balance.Save();
+            var result = _balance.Save(code,country,name);
             if (result.Data.CodigoResultado == 0)
             {
                 return Ok(result.Data.Mensaje);

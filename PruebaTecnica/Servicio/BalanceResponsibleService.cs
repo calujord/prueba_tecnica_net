@@ -3,6 +3,7 @@ using PruebaTecnica.DTO;
 using PruebaTecnica.Genericos;
 using PruebaTecnica.Models;
 using PruebaTecnica.Servicio.Interfaz;
+using System.Diagnostics.Metrics;
 
 namespace PruebaTecnica.Servicio
 {
@@ -28,7 +29,8 @@ namespace PruebaTecnica.Servicio
                 result.Data = new BalanceReponsiblePartiesModels()
                 {
                     CodigoResultado = 1,
-                    BalanceResponsible = null
+                    BalanceResponsible = null,
+                    Mensaje="El dato no existe"
                 };
                 return result;
             }
@@ -47,20 +49,24 @@ namespace PruebaTecnica.Servicio
             result.Data = new BalanceReponsiblePartiesModels()
             {
                 CodigoResultado = 0,
-                BalanceResponsible = dataDto
+                BalanceResponsible = dataDto,
+                Mensaje="Dato encontrado"
             };
 
             return result;
         }
 
-        public ServiceResult<BalanceReponsiblePartiesModels> Save()
+        public ServiceResult<BalanceReponsiblePartiesModels> Save(string code, string country, string name)
         {
             var result = new ServiceResult<BalanceReponsiblePartiesModels>();
-            var datosApi = _webApiExterna.TraerDatosApi();
+            var datosApi = _webApiExterna.TraerDatosApi(code, country, name);
             if (!datosApi.responsiblePartyDTOs.Any()) 
             {
-                result.Data.CodigoResultado = 2;
-                result.Data.Mensaje = "No hay elementos en la búsqueda";
+                result.Data = new BalanceReponsiblePartiesModels()
+                {
+                    CodigoResultado = 2,
+                    Mensaje = "No hay datos"
+                };
                 return result;
             };
 
@@ -76,9 +82,13 @@ namespace PruebaTecnica.Servicio
             });
 
             _context.AddRange(dataEntidad);
+            _context.SaveChanges();
 
-            result.Data.CodigoResultado = 0;
-            result.Data.Mensaje = "Datos Guardados";
+            result.Data = new BalanceReponsiblePartiesModels()
+            {
+                CodigoResultado = 0,
+                Mensaje = "Datos Guardados"
+            };
 
             return result;
 
