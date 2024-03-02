@@ -1,0 +1,16 @@
+@PuebaTecnicaNet.API_HostAddress = http://localhost:5232
+
+GET {{PuebaTecnicaNet.API_HostAddress}}/api/settlementbanks
+Accept: application/json
+
+###
+
+GET {{PuebaTecnicaNet.API_HostAddress}}/api/settlementbanks/SPTRNO22
+Accept: application/json
+
+###
+
+GET {{PuebaTecnicaNet.API_HostAddress}}/api/settlementbanks/esett
+Accept: application/json
+
+###
