@@ -2,6 +2,7 @@
 using PruebaTecnica.DTO;
 using PruebaTecnica.Genericos;
 using PruebaTecnica.Models;
+using PruebaTecnica.Repository.Impl;
 using PruebaTecnica.Servicio.Interfaz;
 using System.Diagnostics.Metrics;
 
@@ -9,20 +10,22 @@ namespace PruebaTecnica.Servicio
 {
     public class BalanceResponsibleService : IBalanceResponsiblePartyService
     {
-        private readonly ApplicationContext _context;
+        //private readonly ApplicationContext _context;
         private readonly IWebApiExterna _webApiExterna;
+        private readonly IBalanceResponsiblePartyRepository _balanceResponsiblePartyServiceRepository;
 
-        public BalanceResponsibleService(ApplicationContext context, IWebApiExterna webApiExterna)
+        public BalanceResponsibleService(IWebApiExterna webApiExterna, IBalanceResponsiblePartyRepository balanceResponsiblePartyServiceRepository)
         {
-            _context = context;
+            //_context = context;
             _webApiExterna = webApiExterna;
+            _balanceResponsiblePartyServiceRepository = balanceResponsiblePartyServiceRepository;
         }
 
         public ServiceResult<BalanceReponsiblePartiesModels> GetData(int id)
         {
             var result = new ServiceResult<BalanceReponsiblePartiesModels>();
 
-            var data = _context.BalanceResponsibles.FirstOrDefault(x => x.Id == id);
+            var data = _balanceResponsiblePartyServiceRepository.Get(id);
 
             if (data == null) 
             {
@@ -88,10 +91,10 @@ namespace PruebaTecnica.Servicio
                 Country=x.Country,
                 ValidityEnd = x.ValidityEnd,
                 ValidityStart= x.ValidityStart
-            });
+            }).ToList();
 
-            _context.AddRange(dataEntidad);
-            _context.SaveChanges();
+            _balanceResponsiblePartyServiceRepository.AddRange(dataEntidad);
+            //_context.SaveChanges();
 
             result.Data = new BalanceReponsiblePartiesModels()
             {

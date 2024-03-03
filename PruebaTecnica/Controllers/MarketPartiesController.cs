@@ -50,7 +50,7 @@ namespace PruebaTecnica.Controllers
             }
             else
             {
-                return NotFound();
+                return NoContent();
             }
 
         }

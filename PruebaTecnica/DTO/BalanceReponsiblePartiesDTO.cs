@@ -18,8 +18,5 @@ namespace PruebaTecnica.DTO
         public string ValidityStart { get; set; }
         [JsonProperty("ValidityEnd")]
         public string ValidityEnd { get; set; }
-
-        [JsonProperty]
-        public int CodigoResultado { get; set; }
     }
 }
