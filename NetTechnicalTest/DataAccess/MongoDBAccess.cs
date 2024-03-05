@@ -25,8 +25,8 @@ namespace NetTechnicalTest.DataAccess
         /// </summary>
         public MongoDBAccess()
         {
-            // Construimos la configuración del cliente a partir de la cadena de conexión a la base de datos
-            const string CONNECTION_URI = "mongodb+srv://testdemo:demotest@cluster0.easyfyf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+            // Construimos la configuración del cliente a partir de la cadena de conexión a la base de datos (el password es demotest)
+            const string CONNECTION_URI = "mongodb+srv://testdemo:********@cluster0.easyfyf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
             MongoClientSettings settings = MongoClientSettings.FromConnectionString(CONNECTION_URI);
             // Establece el campo ServerApi del objeto de configuración para establecer la versión del Stable API en el cliente
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
