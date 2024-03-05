@@ -1,0 +1,21 @@
+﻿@*Layout principal*@
+@inherits LayoutComponentBase
+
+<PageTitle>NetTechnicalTest</PageTitle>
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="http://localhost:5245/swagger/v1/swagger.json" target="_blank">API Rest</a>
+            <a href="http://localhost:5245/swagger/" target="_blank">Swager UI</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>

@@ -1,0 +1,72 @@
+﻿@* Control para el listado de precios *@
+@page "/prices"
+
+@inject IDataService DataService
+
+<h1>Precios únicos equilibrados</h1>
+
+<p>Listado de todos los précios únicos equilibrados.</p>
+
+@if (singlebalancedPriceArray == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else @if (error)
+{
+    <p><em>ERROR</em></p>
+}
+else
+{
+    @*Tabla con los datos de los precios*@
+    <table class="table">
+        <thead>
+            <tr>
+                <th>DownRegPrice</th>
+                <th>ImblPurchasePrice</th>
+                <th>ImblSalesPrice</th>
+                <th>IncentivisingComponent</th>
+                <th>MainDirRegPowerPerMBA</th>
+                <th>Mba</th>
+                <th>Timestamp</th>
+                <th>UpRegPrice</th>
+                <th>ValueOfAvoidedActivation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (SinglebalancePrice singlebalancedPrice in singlebalancedPriceArray)
+            {
+                <tr>
+                    <td>@singlebalancedPrice.DownRegPrice</td>
+                    <td>@singlebalancedPrice.ImblPurchasePrice</td>
+                    <td>@singlebalancedPrice.ImblSalesPrice</td>
+                    <td>@singlebalancedPrice.IncentivisingComponent</td>
+                    <td>@singlebalancedPrice.MainDirRegPowerPerMBA</td>
+                    <td>@singlebalancedPrice.Mba</td>
+                    <td>@singlebalancedPrice.Timestamp</td>
+                    <td>@singlebalancedPrice.UpRegPrice</td>
+                    <td>@singlebalancedPrice.ValueOfAvoidedActivation</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    //Indica si ha dado error la carga
+    private bool error;
+    //Listado de los precios cargados
+    private SinglebalancePrice[]? singlebalancedPriceArray = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            //Carga los datos de los precios desde el servicio de datos
+            singlebalancedPriceArray = await DataService.GetAllPrices();
+        }
+        catch (Exception e)
+        {
+            error = true;
+        }
+    }
+}

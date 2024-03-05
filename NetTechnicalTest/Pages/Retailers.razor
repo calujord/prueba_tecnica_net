@@ -1,0 +1,108 @@
+﻿@* Control para el listado de minoristas *@
+@page "/"
+
+@inject IDataService DataService
+
+<h1>Comerciantes al por menor</h1>
+
+<p>Listado de todos los comerciantes al por menor.</p>
+
+@*Ventana flotante para visualizar la información de un minorista*@
+<div draggable="true"
+     @ondragend="OnDragEnd" @ondragstart="OnDragStart"
+     style="position:absolute; top: @(offsetY)px; left: @(offsetX)px; border-color: black;">
+    <div>
+        <RetailerPopup @ref="PopupRef" />
+    </div>
+</div>
+
+@if (retailerArray == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else @if (error)
+{
+    <p><em>ERROR</em></p>
+}
+else
+{
+    @*Tabla con los datos de los minoristas*@
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Retailer Name</th>
+                <th>Retailer Code</th>
+                <th>Country</th>
+                <th>Coding Scheme</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Retailer retailer in retailerArray)
+            {
+                <tr>
+                    <td>@retailer.ReName</td>
+                    <td>@retailer.ReCode</td>
+                    <td>@retailer.Country</td>
+                    <td>@retailer.CodingScheme</td>
+                    <td><button class="btn btn-primary" @onclick="async () => await OpenRetailer(retailer.ReCode)">Abrir</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    //Posiciones de la ventana flotante
+    private double startX, startY, offsetX = 300, offsetY = 200;
+
+    //Control de inicio de arrastre de la ventana flotante
+    private void OnDragStart(DragEventArgs args)
+    {
+        startX = args.ClientX;
+        startY = args.ClientY;
+    }
+
+    //Control de fin de arrastre de la ventana flotante
+    private void OnDragEnd(DragEventArgs args)
+    {
+        offsetX += args.ClientX - startX;
+        offsetY += args.ClientY - startY;
+    }
+
+    //Ventana flotante
+    private RetailerPopup PopupRef;
+
+
+    //Indica si ha dado error la carga
+    private bool error;
+    //Listado de los minoritas cargados
+    private Retailer[]? retailerArray;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            //Carga los datos de los minoristas desde el servicio de datos
+            retailerArray = await DataService.GetAllRetailers();
+        }
+        catch (Exception e)
+        {
+            error = true;
+        }
+    }
+
+    protected async Task OpenRetailer(string reCode)
+    {
+        try
+        {
+            //Recupera el minorista a partir de su código desde el servicio de datos
+            Retailer retailer = await DataService.GetRetailer(reCode);
+            PopupRef.Show(retailer);
+        }
+        catch (Exception e)
+        {
+            error = true;
+        }
+    }
+}

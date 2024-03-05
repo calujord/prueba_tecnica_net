@@ -1,0 +1,49 @@
+﻿@* Control para la visualización de un minorista *@
+
+@{
+    string showClass = IsVisible ? "d-block" : "d-none";
+}
+
+<div class="toast-container p-3 @showClass" data-bs-autohide="true" data-bs-delay="5000">
+    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">@Retailer?.ReName</strong>
+            <button type="button" class="btn-close" aria-label="Close" @onclick="Close"></button>
+        </div>
+
+        <div class="toast-body">
+            <form>
+                <label for="reName">Name:</label> <input type="text" id="reName" name="reName" readonly value="@Retailer?.ReName"><br />
+                <label for="reCode">Code:</label> <input type="text" id="reCode" name="reCode" readonly value="@Retailer?.ReCode"><br />
+                <label for="reCode">Country:</label> <input type="text" id="reCountry" name="reCountry" readonly value="@Retailer?.Country"><br />
+                <label for="reCodingScheme">CodingScheme:</label> <input type="text" id="reCodingScheme" readonly name="reCodingScheme" value="@Retailer?.CodingScheme"><br />
+            </form>
+        </div>
+    </div>
+</div>
+
+@code {
+    //Indica si este control es visible
+    [Parameter]
+    public bool IsVisible { get; set; }
+
+    //Objeto minorista
+    [Parameter]
+    public Retailer? Retailer { get; set; }
+
+    //Muestra el control para un minorista
+    public void Show(Retailer retailer)
+    {
+        Retailer = retailer;
+        IsVisible = true;
+        StateHasChanged();
+    }
+
+    //Cierra el control
+    private void Close()
+    {
+        Retailer = null;
+        IsVisible = false;
+        StateHasChanged();
+    }
+}
