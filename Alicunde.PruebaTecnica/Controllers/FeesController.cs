@@ -1,5 +1,7 @@
+using Alicunde.PruebaTecnica.Models;
 using Alicunde.PruebaTecnica.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Alicunde.PruebaTecnica.Controllers
 {
@@ -31,5 +33,40 @@ namespace Alicunde.PruebaTecnica.Controllers
                 return StatusCode(500, "Failed to fetch fees");
             }
         }
+
+        [HttpPost(Name = "SaveFees")]
+        public async Task<IActionResult> SaveFees()
+        {
+            try
+            {
+                var feesData = await _esettService.GetFeesAsync();
+
+                try
+                {
+                    FeesRS feesResponse = JsonSerializer.Deserialize<FeesRS>(feesData)!;
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+               
+
+                    _dbContext.Fees.AddRange(feesResponse.);
+                }
+
+                await _dbContext.SaveChangesAsync();
+
+                return Ok("Fees data saved successfully");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error saving fees data");
+                return StatusCode(500, "Failed to save fees data");
+            }
+        }
     }
+}
 }
