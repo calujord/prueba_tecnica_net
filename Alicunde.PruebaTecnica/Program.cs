@@ -1,4 +1,7 @@
+using Alicunde.PruebaTecnica.Data;
+using Alicunde.PruebaTecnica.Repositories;
 using Alicunde.PruebaTecnica.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +18,14 @@ builder.Services.AddSwaggerGen();
 
 // Custom services
 builder.Services.AddHttpClient<EsettService>();
+
+// Add database context
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDatabaseContext>(options =>
+    options.UseSqlServer(connectionString));
+
+// Repositories
+builder.Services.AddScoped<IFeeRepository, FeeRepository>();
 
 var app = builder.Build();
 
