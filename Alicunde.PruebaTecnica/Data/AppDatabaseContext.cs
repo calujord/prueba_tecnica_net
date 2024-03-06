@@ -9,7 +9,6 @@ namespace Alicunde.PruebaTecnica.Data
         {
         }
 
-        // DbSet properties for your entities
         public DbSet<Fee> Fees { get; set; }
     }
 }
