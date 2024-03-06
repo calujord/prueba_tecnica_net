@@ -1,4 +1,5 @@
 using Alicunde.PruebaTecnica.Data;
+using Alicunde.PruebaTecnica.Mapping;
 using Alicunde.PruebaTecnica.Repositories;
 using Alicunde.PruebaTecnica.Services;
 using Microsoft.EntityFrameworkCore;
@@ -16,16 +17,24 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-// Custom services
-builder.Services.AddHttpClient<EsettService>();
 
 // Add database context
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDatabaseContext>(options =>
     options.UseSqlServer(connectionString));
 
+
 // Repositories
 builder.Services.AddScoped<IFeeRepository, FeeRepository>();
+
+// Custom service
+builder.Services.AddScoped<FeeService>();
+
+// Automapper
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+
+// External Services
+builder.Services.AddHttpClient<EsettService>();
 
 var app = builder.Build();
 
