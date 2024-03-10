@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PruebaTecnicaNet</name>
+    </assembly>
+    <members>
+        <member name="P:PruebaTecnicaNet.Context.ApplicationContext.Fee">
+            <summary>
+            Mapeo de la tabla Fee.
+            </summary>
+        </member>
+        <member name="T:PruebaTecnicaNet.Controllers.FeeController">
+            <summary>
+            The fees controller.
+            </summary>
+        </member>
+        <member name="F:PruebaTecnicaNet.Controllers.FeeController._feeService">
+            <summary>
+            The fees service.
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Controllers.FeeController.#ctor(PruebaTecnicaNet.Services.Interfaces.IFeeService)">
+            <summary>
+            Constructor of controller.
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Controllers.FeeController.GetFees">
+            <summary>
+            Gets all the fees in the database.
+            </summary>
+            <returns>List of all the fees in the database.</returns>
+            <response code="200">Returns 200 and the list fees.</response>
+            <response code="204">Returns 204 if there are no fees in the database.</response>
+            <response code="400">Returns 400 if there has been any problem.</response>
+        </member>
+        <member name="M:PruebaTecnicaNet.Controllers.FeeController.GetFee(System.Int32)">
+            <summary>
+            Gets the Fee data by searching by identifier.
+            </summary>
+            <param name="feeId">Fee identity.</param>
+            <returns>The data of the fee searched.</returns>
+            <response code="200">Returns 200 and the fee data searched.</response>
+            <response code="204">Returns 204 if have not found the fee.</response>
+            <response code="400">Returns 400 if there has been any problem.</response>
+        </member>
+        <member name="M:PruebaTecnicaNet.Controllers.FeeController.SaveDataOfAPI">
+            <summary>
+            Gets the fees from the public api and stores them in the database.
+            </summary>
+            <returns>Operation result message.</returns>
+            <response code="200">Returns 200 and a message of success.</response>
+            <response code="204">Returns 204 if there are no fees in the public API.</response>
+            <response code="400">Returns 400 if there has been any problem.</response>
+        </member>
+        <member name="T:PruebaTecnicaNet.Helpers.ResultState">
+            <summary>
+            States to manage responses.
+            </summary>
+        </member>
+        <member name="F:PruebaTecnicaNet.Helpers.ResultState.Success">
+            <summary>
+            Success.
+            </summary>
+        </member>
+        <member name="F:PruebaTecnicaNet.Helpers.ResultState.NoData">
+            <summary>
+            No data.
+            </summary>
+        </member>
+        <member name="F:PruebaTecnicaNet.Helpers.ResultState.Error">
+            <summary>
+            Error.
+            </summary>
+        </member>
+        <member name="T:PruebaTecnicaNet.Migrations.Inicio">
+            <inheritdoc />
+        </member>
+        <member name="M:PruebaTecnicaNet.Migrations.Inicio.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:PruebaTecnicaNet.Migrations.Inicio.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:PruebaTecnicaNet.Migrations.Inicio.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:PruebaTecnicaNet.Repository.Interfaces.IFeeRepository.GetAll">
+            <summary>
+            Get all Fees.
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Repository.Interfaces.IFeeRepository.Get(System.Int32)">
+            <summary>
+            Get the Fee by its identifier.
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Repository.Interfaces.IFeeRepository.Add(System.Collections.Generic.List{PruebaTecnicaNet.Models.Fee})">
+            <summary>
+            Saves the entered fee.
+            </summary>
+        </member>
+        <member name="F:PruebaTecnicaNet.Services.FeeService._feeRepository">
+            <summary>
+            The Fee repository
+            </summary>
+        </member>
+        <member name="F:PruebaTecnicaNet.Services.FeeService._publicApiService">
+            <summary>
+            The Public Api sevice
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Services.FeeService.#ctor(PruebaTecnicaNet.Repository.Interfaces.IFeeRepository,PruebaTecnicaNet.Services.Interfaces.IPublicApiService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PruebaTecnicaNet.Services.FeeService"/> and the <see cref="T:PruebaTecnicaNet.Services.PublicApiService"/>.
+            </summary>
+            <param name="feeRepository">The fee repository.</param>
+            <param name="publicApiService">The public Api service.</param>
+        </member>
+        <member name="M:PruebaTecnicaNet.Services.FeeService.GetAllFees">
+            <summary>
+            Get all fees. 
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Services.FeeService.GetFee(System.Int32)">
+            <summary>
+            Get the Fee by its identifier.
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Services.FeeService.SaveFees">
+            <summary>
+            Save fees obtained from the public API.
+            </summary>
+        </member>
+        <member name="T:PruebaTecnicaNet.Services.Interfaces.IFeeService">
+            <summary>
+            Fee Service
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Services.Interfaces.IFeeService.SaveFees">
+            <summary>
+            Save fees obtained from the public API.
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Services.Interfaces.IFeeService.GetAllFees">
+            <summary>
+            Get all fees. 
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Services.Interfaces.IFeeService.GetFee(System.Int32)">
+            <summary>
+            Get the Fee by its identifier.
+            </summary>
+        </member>
+        <member name="T:PruebaTecnicaNet.Services.Interfaces.IPublicApiService">
+            <summary>
+            Public API Service
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Services.Interfaces.IPublicApiService.GetDataOfPublicApi">
+            <summary>
+            Get all fees from the public API. 
+            </summary>
+        </member>
+        <member name="F:PruebaTecnicaNet.Services.PublicApiService._urlGetFees">
+            <summary>
+            Url that obtains the list of Fees from the public API.
+            </summary>
+        </member>
+        <member name="M:PruebaTecnicaNet.Services.PublicApiService.GetDataOfPublicApi">
+            <summary>
+            Get all fees from the public API.
+            </summary>
+        </member>
+    </members>
+</doc>
